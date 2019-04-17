@@ -400,7 +400,9 @@ export default {
     font-family: 'Arial', sans-serif;
     letter-spacing: 0.2px;
     color: #777;
+    background-color: #a92222;
     transition: .2s linear;
+    padding: 0;
    }
 
   .vue-dropzone:hover {
@@ -411,8 +413,40 @@ export default {
     color: #CCC;
   }
 
+  /*#style-images > div:nth-child(3)*/
+  .vue-dropzone > .dz-preview:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 50%;
+    height: 50%;
+  }
+
+  .vue-dropzone > .dz-preview:nth-child(3) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0;
+    width: 50%;
+    height: 50%;
+  }
+
   .vue-dropzone > .dz-preview .dz-image {
     border-radius: 0;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 100%;
+  }
+
+  .vue-dropzone > .dz-preview:nth-child(3) .dz-image {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 100%;
+  }
+
+  .vue-dropzone > .dz-preview .dz-image img {
     width: 100%;
     height: 100%;
   }
@@ -420,6 +454,11 @@ export default {
   .vue-dropzone > .dz-preview .dz-image img:not([src]) {
     width: 200px;
     height: 200px;
+  }
+
+  .vue-dropzone > .dz-preview:hover .dz-image img {
+    filter: none;
+    transform: none;
   }
 
   .vue-dropzone > .dz-preview .dz-image:hover img {
@@ -431,13 +470,15 @@ export default {
     bottom: 0;
     top: 0;
     color: white;
-    background-color: rgba(33, 150, 243, 0.8);
+    /*background-color: rgba(33, 150, 243, 0.8);*/
     transition: opacity .2s linear;
     text-align: left;
+    border-top-left-radius: 100%;
   }
 
-  .vue-dropzone > .dz-preview .dz-details .dz-filename {
+  .vue-dropzone > .dz-preview .dz-details .dz-filename, .dz-size {
     overflow: hidden;
+    display: none;
   }
 
   .vue-dropzone > .dz-preview .dz-details .dz-filename span, .vue-dropzone > .dz-preview .dz-details .dz-size span {
@@ -453,6 +494,9 @@ export default {
     border: none;
   }
 
+  .vue-dropzone > .dz-preview .dz-progress {
+    display: none;
+  }
   .vue-dropzone > .dz-preview .dz-progress .dz-upload {
     background: #cccccc;
   }
@@ -463,7 +507,6 @@ export default {
     color: white;
     margin-left: 15px;
     padding: 10px;
-    top: inherit;
     bottom: 15px;
     border: 2px white solid;
     text-decoration: none;
@@ -472,6 +515,30 @@ export default {
     font-weight: 800;
     letter-spacing: 1.1px;
     opacity: 0;
+
+    top: 180px;
+    left: 80px;
+    height: 36px;
+  }
+
+  .vue-dropzone > .dz-preview:nth-child(3) .dz-remove  {
+    position: absolute;
+    z-index: 30;
+    color: white;
+    margin-left: 15px;
+    padding: 10px;
+    bottom: 15px;
+    border: 2px white solid;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+    opacity: 0;
+
+    top: 180px;
+    left: 13px;
+    height: 36px;
   }
 
   .vue-dropzone > .dz-preview:hover .dz-remove {
